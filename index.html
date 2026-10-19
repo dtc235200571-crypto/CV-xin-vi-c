@@ -1,410 +1,260 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Xin Việc - Nguyễn Văn A</title>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Xin Việc - Nguyễn Văn A</title>
+  
+  <!-- Font chữ Roboto & Icons FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        body {
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-            color: #333;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
 
-        .cv-container {
-            width: 800px;
-            background-color: #fff;
-            display: flex;
-            box-shadow: 0 0 15px rgba(0,0,0,0.15);
-            min-height: 1050px;
-        }
+    body {
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 30px 15px;
+    }
 
-        /* --- CỘT TRÁI (LEFT SIDEBAR) --- */
-        .sidebar {
-            width: 35%;
-            background-color: #2f3e35;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-        }
+    .cv-container {
+      background: #fff;
+      width: 100%;
+      max-width: 850px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
 
-        .sidebar-header {
-            background-color: #48594e;
-            padding: 30px 20px;
-            text-align: center;
-        }
+    /* Cột trái (Thông tin cá nhân & Kỹ năng) */
+    .left-column {
+      background-color: #1e293b;
+      color: #fff;
+      padding: 30px 20px;
+    }
 
-        .avatar-placeholder {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            margin: 0 auto 15px auto;
-            background-color: #d1d5db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            font-size: 50px;
-            overflow: hidden;
-        }
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 48px;
+      color: #fff;
+    }
 
-        .avatar-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .section-title-left {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #38bdf8;
+      padding-bottom: 5px;
+      margin: 25px 0 15px;
+      color: #38bdf8;
+    }
 
-        .sidebar-header h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #fff;
-        }
+    .contact-info li {
+      list-style: none;
+      font-size: 13px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      word-break: break-word;
+    }
 
-        .sidebar-header p {
-            font-size: 14px;
-            font-weight: 400;
-            color: #d1d5db;
-        }
+    .contact-info i {
+      color: #38bdf8;
+      width: 16px;
+    }
 
-        .sidebar-content {
-            padding: 25px 20px;
-        }
+    .skills-list li, .language-list li {
+      list-style: none;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
 
-        .contact-list {
-            list-style: none;
-            margin-bottom: 25px;
-            font-size: 13px;
-        }
+    /* Cột phải (Kinh nghiệm & Học vấn) */
+    .right-column {
+      padding: 35px 30px;
+    }
 
-        .contact-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            line-height: 1.4;
-            word-break: break-word;
-        }
+    .header-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
 
-        .contact-list i {
-            width: 20px;
-            margin-right: 10px;
-            color: #cbd5e1;
-            font-size: 14px;
-            text-align: center;
-        }
+    .header-job {
+      font-size: 16px;
+      color: #2563eb;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
 
-        /* Pill Badge cho các mục ở Sidebar */
-        .sidebar-badge {
-            background-color: #48594e;
-            color: #fff;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 15px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
+    .section-title-right {
+      font-size: 18px;
+      color: #0f172a;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin: 25px 0 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .sidebar-section {
-            margin-bottom: 25px;
-        }
+    .section-title-right i {
+      color: #2563eb;
+    }
 
-        .sidebar-section h3 {
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
+    .timeline-item {
+      margin-bottom: 20px;
+      position: relative;
+    }
 
-        .sidebar-section .time {
-            font-size: 12px;
-            color: #9ca3af;
-            margin-bottom: 6px;
-        }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e293b;
+    }
 
-        .sidebar-section p {
-            font-size: 12px;
-            line-height: 1.5;
-            color: #e2e8f0;
-        }
+    .item-sub {
+      font-size: 13px;
+      color: #64748b;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
 
-        .skills-list, .interests-list {
-            list-style: none;
-            font-size: 13px;
-        }
+    .item-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #475569;
+    }
 
-        .skills-list li, .interests-list li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 12px;
-        }
+    .item-desc li {
+      margin-left: 18px;
+      margin-bottom: 4px;
+    }
 
-        .skills-list li::before, .interests-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #cbd5e1;
-        }
+    /* Nút in PDF */
+    .print-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
 
-        /* --- CỘT PHẢI (MAIN CONTENT) --- */
-        .main-content {
-            width: 65%;
-            padding: 30px 30px;
-            background-color: #fff;
-        }
+    @media print {
+      body { background: none; padding: 0; }
+      .cv-container { box-shadow: none; max-width: 100%; }
+      .print-btn { display: none; }
+    }
 
-        .main-section {
-            margin-bottom: 25px;
-        }
-
-        /* Pill Title có đường gạch ngang nối tiếp */
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .section-badge {
-            background-color: #48594e;
-            color: #fff;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-size: 15px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .section-line {
-            flex-grow: 1;
-            height: 1px;
-            background-color: #ccc;
-            margin-left: 10px;
-        }
-
-        .summary-text {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #4b5563;
-            text-align: justify;
-        }
-
-        .experience-item {
-            margin-bottom: 20px;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-
-        .job-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1f2937;
-        }
-
-        .job-time {
-            font-size: 13px;
-            font-weight: 700;
-            color: #1f2937;
-        }
-
-        .company-name {
-            font-size: 13px;
-            font-style: italic;
-            color: #4b5563;
-            margin-bottom: 8px;
-        }
-
-        .job-bullets {
-            padding-left: 18px;
-            font-size: 13px;
-            color: #374151;
-            line-height: 1.5;
-        }
-
-        .job-bullets li {
-            margin-bottom: 6px;
-            text-align: justify;
-        }
-
-        .simple-list {
-            list-style: none;
-            font-size: 13px;
-        }
-
-        .simple-item {
-            display: flex;
-            margin-bottom: 8px;
-        }
-
-        .simple-year {
-            width: 70px;
-            font-weight: 700;
-            color: #1f2937;
-        }
-
-        .simple-desc {
-            color: #374151;
-            flex: 1;
-        }
-    </style>
+    @media (max-width: 600px) {
+      .cv-container { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="cv-container">
-        <!-- CỘT TRÁI (SIDEBAR) -->
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <!-- Ảnh đại diện để trống -->
-                <div class="avatar-placeholder">
-                    <i class="fa-solid fa-user"></i>
-                    <!-- Khi muốn thêm ảnh, thay thế dòng icon trên bằng: -->
-                    <!-- <img src="duong-dan-anh-cua-ban.jpg" alt="Avatar"> -->
-                </div>
-                <h1>Nguyễn Văn A</h1>
-                <p>Content Leader</p>
-            </div>
+  <div class="cv-container">
+    <!-- CỘT BÊN TRÁI -->
+    <div class="left-column">
+      <div class="profile-photo">
+        <i class="fa-solid fa-user"></i>
+      </div>
 
-            <div class="sidebar-content">
-                <!-- Thông tin liên hệ -->
-                <ul class="contact-list">
-                    <li><i class="fa-solid fa-phone"></i> 0123 456 789</li>
-                    <li><i class="fa-solid fa-calendar"></i> 18/12/1997</li>
-                    <li><i class="fa-solid fa-envelope"></i> tech.growth@topcv.vn</li>
-                    <li><i class="fa-solid fa-globe"></i> facebook.com/TopCV.vn</li>
-                    <li><i class="fa-solid fa-location-dot"></i> Thanh Xuân, Hà Nội</li>
-                </ul>
+      <div class="section-title-left">Liên hệ</div>
+      <ul class="contact-info">
+        <li><i class="fa-solid fa-envelope"></i> nguyenvana@gmail.com</li>
+        <li><i class="fa-solid fa-phone"></i> 0912 345 678</li>
+        <li><i class="fa-solid fa-location-dot"></i> Hà Nội, Việt Nam</li>
+        <li><i class="fa-brands fa-github"></i> github.com/nguyenvana</li>
+      </ul>
 
-                <!-- Học vấn -->
-                <div class="sidebar-section">
-                    <div class="sidebar-badge">Học vấn</div>
-                    <h3>Cử nhân Public Relation & Advertising</h3>
-                    <div class="time">2015 – 2019</div>
-                    <p><strong>Đại học Kinh tế TOPCV</strong></p>
-                    <p style="margin-top: 5px;">Đạt giải Nhì cuộc thi "Chiến lược truyền thông sáng tạo" do khoa PR tổ chức.</p>
-                </div>
+      <div class="section-title-left">Kỹ năng</div>
+      <ul class="skills-list">
+        <li>✔ HTML5 & CSS3 / SCSS</li>
+        <li>✔ JavaScript (ES6+)</li>
+        <li>✔ Git & GitHub Workflow</li>
+        <li>✔ Responsive Web Design</li>
+      </ul>
 
-                <!-- Kỹ năng -->
-                <div class="sidebar-section">
-                    <div class="sidebar-badge">Kỹ năng</div>
-                    <ul class="skills-list">
-                        <li>Kỹ năng giao tiếp</li>
-                        <li>Kỹ năng làm việc nhóm</li>
-                        <li>Kỹ năng giải quyết vấn đề</li>
-                        <li>Kỹ năng Quản lý thời gian</li>
-                        <li>Kỹ năng tin học</li>
-                        <li>Kỹ năng ngoại ngữ</li>
-                    </ul>
-                </div>
-
-                <!-- Sở thích -->
-                <div class="sidebar-section">
-                    <div class="sidebar-badge">Sở thích</div>
-                    <ul class="interests-list">
-                        <li>Đọc sách về Phát triển bản thân</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- CỘT PHẢI (MAIN CONTENT) -->
-        <div class="main-content">
-            
-            <!-- Mục tiêu nghề nghiệp -->
-            <div class="main-section">
-                <div class="section-header">
-                    <div class="section-badge">Mục tiêu nghề nghiệp</div>
-                    <div class="section-line"></div>
-                </div>
-                <p class="summary-text">
-                    Content Leader với 6 năm kinh nghiệm xây dựng và triển khai chiến lược nội dung đa nền tảng cho các thương hiệu trong lĩnh vực FMCG, công nghệ, giáo dục và bán lẻ. Tôi có thế mạnh quản lý đội ngũ Content từ 5-10 người, từng góp phần tăng 40% Organic Traffic và nâng tỷ lệ chuyển đổi từ nội dung gấp 2-3 lần. Từ nền tảng Content vững chắc, tôi hướng đến vai trò Marketing Leader trong 1-2 năm tới, xây dựng chiến lược Marketing toàn diện, góp phần tăng trưởng độ nhận diện thương hiệu và hiệu quả kinh doanh trong dài hạn.
-                </p>
-            </div>
-
-            <!-- Kinh nghiệm làm việc -->
-            <div class="main-section">
-                <div class="section-header">
-                    <div class="section-badge">Kinh nghiệm làm việc</div>
-                    <div class="section-line"></div>
-                </div>
-
-                <!-- Vị trí 1 -->
-                <div class="experience-item">
-                    <div class="job-header">
-                        <span class="job-title">Content Leader</span>
-                        <span class="job-time">2023 – Nay</span>
-                    </div>
-                    <div class="company-name">Công ty Công nghệ NTD Tech</div>
-                    <ul class="job-bullets">
-                        <li>Xây dựng chiến lược nội dung cho website, social media và các kênh digital, giúp tăng 40% organic traffic và nâng tỷ lệ chuyển đổi từ Landing Page gấp 2,5 lần sau 6 tháng.</li>
-                        <li>Quản lý đội ngũ nhóm 10 thành viên, phối hợp chặt chẽ với team Media, Design và Product để triển khai các chiến dịch Marketing tích hợp.</li>
-                        <li>Dẫn dắt các dự án nội dung trọng điểm như: Ra mắt sản phẩm mới, chiến dịch thương hiệu mùa cao điểm, xây dựng hệ thống nội dung CRM/Email Marketing.</li>
-                        <li>Phân tích dữ liệu từ GA4, Meta Insights và Looker Studio để đánh giá hiệu quả nội dung, đề xuất phương án tối ưu theo từng giai đoạn.</li>
-                    </ul>
-                </div>
-
-                <!-- Vị trí 2 -->
-                <div class="experience-item">
-                    <div class="job-header">
-                        <span class="job-title">Content Executive → Content Team Lead</span>
-                        <span class="job-time">2019 – 2023</span>
-                    </div>
-                    <div class="company-name">Agency NDS – Marketing & Advertising</div>
-                    <ul class="job-bullets">
-                        <li>Triển khai và quản lý hơn 100 chiến dịch nội dung (Website & Social) cho các thương hiệu trong lĩnh vực FMCG, F&B, bán lẻ, tài chính, công nghệ.</li>
-                        <li>Làm việc trực tiếp với khách hàng để đề xuất chiến lược nội dung, thực thi plan và điều phối thiết kế, media theo đúng KPIs.</li>
-                        <li>Quản lý team Content (4–5 người), đào tạo nhân sự mới và xây dựng quy trình quản lý Content.</li>
-                        <li>Một số dự án tiêu biểu: Ra mắt sản phẩm mới cho nhãn hàng F&B quốc tế, chiến dịch viral Tết cho thương hiệu FMCG nội địa, chuỗi video branding cho startup công nghệ.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Danh hiệu và giải thưởng -->
-            <div class="main-section">
-                <div class="section-header">
-                    <div class="section-badge">Danh hiệu và giải thưởng</div>
-                    <div class="section-line"></div>
-                </div>
-                <div class="simple-list">
-                    <div class="simple-item">
-                        <span class="simple-year">2022</span>
-                        <span class="simple-desc">Top 5 Chiến dịch Content hiệu quả nhất năm</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chứng chỉ -->
-            <div class="main-section">
-                <div class="section-header">
-                    <div class="section-badge">Chứng chỉ</div>
-                    <div class="section-line"></div>
-                </div>
-                <div class="simple-list">
-                    <div class="simple-item">
-                        <span class="simple-year">2022</span>
-                        <span class="simple-desc">Google Digital Garage: Fundamentals of Digital Marketing</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+      <div class="section-title-left">Ngoại ngữ</div>
+      <ul class="language-list">
+        <li>• Tiếng Việt (Tiếng mẹ đẻ)</li>
+        <li>• Tiếng Anh (Đọc hiểu tài liệu)</li>
+      </ul>
     </div>
+
+    <!-- CỘT BÊN PHẢI -->
+    <div class="right-column">
+      <h1 class="header-name">Nguyễn Văn A</h1>
+      <div class="header-job">Lập Trình Viên Front-End</div>
+
+      <div class="section-title-right">
+        <i class="fa-solid fa-user-pen"></i> Mục Tiêu Nghề Nghiệp
+      </div>
+      <p class="item-desc">
+        Lập trình viên Front-End đầy nhiệt huyết với kiến thức cơ bản vững chắc về HTML, CSS và JavaScript. Mong muốn tìm kiếm cơ hội thực tập/chính thức để cống hiến và phát triển kỹ năng tạo ra các giao diện web tối ưu cho người dùng.
+      </p>
+
+      <div class="section-title-right">
+        <i class="fa-solid fa-briefcase"></i> Kinh Nghiệm Làm Việc
+      </div>
+      <div class="timeline-item">
+        <div class="item-header">
+          <span>Thực tập sinh Front-End</span>
+          <span>06/2025 - Hiện tại</span>
+        </div>
+        <div class="item-sub">Công ty Công nghệ ABC</div>
+        <ul class="item-desc">
+          <li>Cắt file thiết kế từ Figma sang giao diện HTML/CSS responsive.</li>
+          <li>Sửa lỗi hiển thị trên các thiết bị di động và trình duyệt khác nhau.</li>
+          <li>Phối hợp cùng nhóm backend để tích hợp API đơn giản.</li>
+        </ul>
+      </div>
+
+      <div class="section-title-right">
+        <i class="fa-solid fa-graduation-cap"></i> Học Vấn
+      </div>
+      <div class="timeline-item">
+        <div class="item-header">
+          <span>Cử nhân Công nghệ Thông tin</span>
+          <span>2022 - 2026</span>
+        </div>
+        <div class="item-sub">Đại học Công Nghệ</div>
+        <p class="item-desc">Điểm trung bình (GPA): 3.2 / 4.0</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">
+    <i class="fa-solid fa-print"></i> Tải PDF / In CV
+  </button>
 
 </body>
 </html>
